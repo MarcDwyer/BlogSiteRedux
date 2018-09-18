@@ -12,7 +12,7 @@ class MainPosts extends Component {
     return(
       <div className="container">
       <Link to="/posts/new" className="btn btn-primary centerme">Add Post</Link>
-      <ul className="list-group">
+      <ul>
       {this.renderPosts()}
       </ul>
       </div>
@@ -20,9 +20,13 @@ class MainPosts extends Component {
   }
  renderPosts() {
    return _.map(this.props.posts, post => {
+    const pather = `/posts/${post.id}`;
      return (
       <li key={post.id} className="list-group-item">
-      {post.title}
+      <h4>{post.title}</h4>
+      <h6>{post.categories}</h6>
+      <p>{post.content}</p>
+      <Link to={pather} className="btn btn-danger">Visit Post</Link>
       </li>
      );
    })

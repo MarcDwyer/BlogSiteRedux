@@ -36,3 +36,18 @@ export function fetchPost(id) {
     payload: req
   }
 }
+export const DELETE_POST = 'delete';
+
+export function deletePost(id, callback) {
+  const key = `?key=makindemrequests`;
+  const newurl = `http://reduxblog.herokuapp.com/api/posts/${id}/${key}`
+  const request = axios.delete(newurl)
+                  .then(callback());
+  const ident = id;
+
+  return {
+    type: DELETE_POST,
+    payload: ident
+  };
+
+}

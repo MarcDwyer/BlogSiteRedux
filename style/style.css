@@ -8,3 +8,7 @@ form a {
 .centerme {
     margin: 10px 15px 15px;
 }
+.list-group {
+    text-align: center;
+    border-bottom: 1px solid #BEBEBE;
+}
